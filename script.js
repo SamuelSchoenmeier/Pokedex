@@ -17,7 +17,6 @@ function renderContent(pokemonList) {
     contentRef.innerHTML = "";
 
     pokemonList.forEach(pokemon => {
-        contentRef.innerHTML += `
-        <div>${pokemon.name}</div>`
+        contentRef.innerHTML += pokTemplate(pokemon)
     });
 }
