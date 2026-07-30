@@ -35,3 +35,8 @@ input {
     color: white;
     margin-top: 12px;
 }
+
+footer {
+    background-color: var(--primary-color);
+    text-align: center;
+}
