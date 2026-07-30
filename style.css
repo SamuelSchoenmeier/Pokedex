@@ -15,14 +15,12 @@ header {
 }
 
 a {
-    text-decoration: none;
-    color: white;
     display: flex;
 }
 
 input {
     height: 20px;
-    margin-top: 14px;
+    margin-top: 14px !important;
 }
 
 .pokedex-logo {
@@ -33,5 +31,7 @@ input {
 .logo-txt {
     padding-left: 5px;
     font-weight: 900;
+    text-decoration: underline var(--primary-color) !important;
+    color: white;
+    margin-top: 12px;
 }
-
