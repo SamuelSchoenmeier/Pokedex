@@ -39,4 +39,10 @@ input {
 footer {
     background-color: var(--primary-color);
     text-align: center;
+    padding-top: 24px;
+}
+
+.da-logo {
+    margin-bottom: 16px;
+    width: 180px;
 }
