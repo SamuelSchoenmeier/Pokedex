@@ -31,10 +31,10 @@ async function loadDataFromUrl(url) {
 }
 
 function renderContent(pokemonList) {
-    let contentRef = document.getElementById("content");
+    let contentRef = document.getElementById("dialog_trigger");
     contentRef.innerHTML = "";
 
     pokemonList.forEach(currentPokemon => {
-        contentRef.innerHTML += pokTemplate(currentPokemon)
+        contentRef.innerHTML += dialogTriggerTemplate(currentPokemon)
     });
 }

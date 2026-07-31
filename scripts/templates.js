@@ -1,4 +1,4 @@
-function pokTemplate(currentPokemon) {
+function dialogTriggerTemplate(currentPokemon) {
     console.log(currentPokemon);
     
     return `<div>${currentPokemon.name}</div>
