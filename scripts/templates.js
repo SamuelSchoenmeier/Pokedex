@@ -1,5 +1,6 @@
-function pokTemplate(pokemon) {
-    return `<div>${pokemon.name}</div>
-            <div>${pokemon.url}</div>
-            <img src="${currentPokemon.sprites.front_default}`;
+function pokTemplate(currentPokemon) {
+    console.log(currentPokemon);
+    
+    return `<div>${currentPokemon.name}</div>
+            <div>${currentPokemon.id}</div>`;
 }

@@ -13,8 +13,8 @@ async function onloadFunc() {
         let pokemonDetails = await loadDataFromUrl(currentPokemon.url);
         pokemon.push(pokemonDetails);
     }
-    
-    renderContent(responseToJson.results);
+
+    renderContent(pokemon);
 }
 
 async function loadData(path="") {
@@ -27,16 +27,14 @@ async function loadData(path="") {
 async function loadDataFromUrl(url) {
     let response = await fetch(url);
     let responseToJson = await response.json();
-    return responseToJson;
-    console.log(responseToJson);
-    
+    return responseToJson;    
 }
 
 function renderContent(pokemonList) {
     let contentRef = document.getElementById("content");
     contentRef.innerHTML = "";
 
-    pokemonList.forEach(pokemon => {
-        contentRef.innerHTML += pokTemplate(pokemon)
+    pokemonList.forEach(currentPokemon => {
+        contentRef.innerHTML += pokTemplate(currentPokemon)
     });
 }
