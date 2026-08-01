@@ -36,6 +36,10 @@ input {
     margin-top: 12px;
 }
 
+main {
+    display: flex;
+}
+
 footer {
     background-color: var(--primary-color);
     text-align: center;
