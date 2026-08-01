@@ -1,7 +1,7 @@
 //              TODO: Icons hinzufügen
-function dialogTemplate(currentPokemon) {
+function dialogTemplate(currentPokemon, index) {
     return  `
-        <button onclick="openDialog(index)">
+        <button class="dialog-trigger" onclick="openDialog(${index})">
             <div class="dialog-trigger-txt">
                 <p>#${currentPokemon.id}</p>
                 <p>${currentPokemon.name}</p>
@@ -18,4 +18,4 @@ function triggerDialogTemplate(currentPokemon, index) {
                 <div>${currentPokemon.name}</div>
                 <div>${currentPokemon.id}</div>
             </div>`
-}triggerDialogTemplate
+}
