@@ -15,8 +15,32 @@ function dialogTemplate(currentPokemon, index) {
 }
 
 function triggerDialogTemplate(currentPokemon, index) {
-    return  `<div>
-                <div>${currentPokemon.name}</div>
-                <div>${currentPokemon.id}</div>
-            </div>`
+    return  `
+        <header>
+            <p>#${currentPokemon.id}</p>
+            <p>${currentPokemon.name}</p>
+        </header>
+
+        <section>
+            <img
+                src="${currentPokemon.sprites.front_default}"
+                alt="${currentPokemon.name}">
+            <div>
+                hier kommen die icons hin
+            </div>
+        </section>
+        
+        <section>
+            <nav>
+                <button>main</button>
+                <button>stats</button>
+                <button>evo chain</button>
+            </nav>
+            <div>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </section>
+            `;
 }
