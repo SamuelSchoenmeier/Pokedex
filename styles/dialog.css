@@ -1,5 +1,8 @@
 .dialog-trigger {
     border: 0;
+    margin: 8px;
+    width: 200px;
+    height: 250px;
     background-color: var(--primary-color);
 }
 
@@ -8,5 +11,6 @@
 }
 
 .dialog-thumbnail {
-
+    width: 100%;
+    height: 193px;
 }

@@ -42,6 +42,7 @@ main {
     padding: 90px 40px;
     background-color: var(--secondary-color);
     min-height: calc(100vh - 183px);
+    text-align: center;
 }
 
 footer {
