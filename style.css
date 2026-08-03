@@ -4,7 +4,8 @@ body {
 }
 
 :root {
-    --primary-color: darkred;
+    --secondary-color: rgb(116, 3, 3);
+    --primary-color: rgb(245, 3, 3);
 }
 
 header {
@@ -38,6 +39,9 @@ input {
 
 main {
     display: flex;
+    padding: 90px 40px;
+    background-color: var(--secondary-color);
+    min-height: calc(100vh - 183px);
 }
 
 footer {

@@ -1,3 +1,12 @@
+.dialog-trigger {
+    border: 0;
+    background-color: var(--primary-color);
+}
+
 .dialog-trigger-txt {
     display: flex;
+}
+
+.dialog-thumbnail {
+
 }

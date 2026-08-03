@@ -7,6 +7,7 @@ function dialogTemplate(currentPokemon, index) {
                 <p>${currentPokemon.name}</p>
             </div>
             <img
+                class="dialog-thumbnail"
                 src="${currentPokemon.sprites.front_default}"
                 alt="${currentPokemon.name}">
         </button>
