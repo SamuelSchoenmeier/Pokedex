@@ -2,12 +2,14 @@
     border: 0;
     margin: 8px;
     width: 200px;
-    height: 250px;
+    height: 177px;
     background-color: var(--primary-color);
+    color: white;
 }
 
 .dialog-trigger-txt {
     display: flex;
+    gap: 16px;
 }
 
 .dialog-thumbnail {
