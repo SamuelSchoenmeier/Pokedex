@@ -4,7 +4,7 @@ function dialogTemplate(currentPokemon, index) {
         <button class="dialog-trigger" onclick="openDialog(${index})">
             <div class="dialog-trigger-txt">
                 <p>#${currentPokemon.id}</p>
-                <p>${currentPokemon.name}</p>
+                <h2>${currentPokemon.name}</h2>
             </div>
             <img
                 class="dialog-thumbnail"
@@ -16,25 +16,26 @@ function dialogTemplate(currentPokemon, index) {
 
 function triggerDialogTemplate(currentPokemon, index) {
     return  `
-        <header>
+        <div class="dialog-header">
             <p>#${currentPokemon.id}</p>
-            <p>${currentPokemon.name}</p>
-        </header>
+            <h2>${currentPokemon.name}</h2>
+        </div>
 
         <section>
             <img
+                class="dialog-img"
                 src="${currentPokemon.sprites.front_default}"
                 alt="${currentPokemon.name}">
-            <div>
+            <div class="dialog-icons">
                 hier kommen die icons hin
             </div>
         </section>
         
         <section>
-            <nav>
-                <button>main</button>
-                <button>stats</button>
-                <button>evo chain</button>
+            <nav class="nav-dialog">
+                <button class="nav-dialog-btn">main</button>
+                <button class="nav-dialog-btn">stats</button>
+                <button class="nav-dialog-btn">evo chain</button>
             </nav>
             <div>
                 <span></span>

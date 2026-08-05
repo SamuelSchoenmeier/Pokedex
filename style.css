@@ -19,6 +19,12 @@ a {
     display: flex;
 }
 
+p {
+    margin: 0 !important;
+    align-self: center !important;
+    font-size: 18px;
+}
+
 input {
     height: 20px;
     margin-top: 14px !important;
