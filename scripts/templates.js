@@ -37,11 +37,32 @@ function triggerDialogTemplate(currentPokemon, index) {
                 <button class="nav-dialog-btn">stats</button>
                 <button class="nav-dialog-btn">evo chain</button>
             </nav>
+
             <div>
-                <span></span>
-                <span></span>
-                <span></span>
+                <table>
+                    <tr>
+                        <th>Height</th>
+                        <th>: ${currentPokemon.height} m</th>
+                    </tr>
+                    <tr>
+                        <th>Weight</th>
+                        <th>: ${currentPokemon.weight} kg</th>
+                    </tr>
+                    <tr>
+                        <th>Base esperience</th>
+                        <th>: ${currentPokemon.base_experience}</th>
+                    </tr>
+                    <tr>
+                        <th>Abilities</th>
+                        <th>: ${currentPokemon.abilities[0].ability.name},
+                        ${currentPokemon.abilities[1].ability.name}</th>
+                    </tr>
+                </table>
             </div>
+
+            <div></div>
+
+            <div></div>
         </section>
             `;
 }
