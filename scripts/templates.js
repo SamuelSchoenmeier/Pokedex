@@ -8,7 +8,7 @@ function dialogTemplate(currentPokemon, index) {
             </div>
             <img
                 class="dialog-thumbnail"
-                src="${currentPokemon.sprites.front_default}"
+                src="${currentPokemon.sprites.other["official-artwork"].front_default}"
                 alt="${currentPokemon.name}">
         </button>
             `;
@@ -24,7 +24,7 @@ function triggerDialogTemplate(currentPokemon, index) {
         <section>
             <img
                 class="dialog-img"
-                src="${currentPokemon.sprites.front_default}"
+                src="${currentPokemon.sprites.other["official-artwork"].front_default}"
                 alt="${currentPokemon.name}">
             <div class="dialog-icons">
                 hier kommen die icons hin
