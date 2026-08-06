@@ -3,7 +3,8 @@ const BASE_URL = "https://pokeapi.co/api/v2/";
 let pokemon = [];
 
 function init() {
-    onloadFunc()
+    onloadFunc();
+    closeDialog();
 }
 
 async function onloadFunc() {
@@ -49,5 +50,11 @@ function openDialog(index) {
 }
 
 function closeDialog() {
-    document.getElementById("dialog").close();
+    let dialogRef = document.getElementById("dialog");
+
+    dialogRef.addEventListener("click", function(event) {
+        if (event.target === dialogRef) {
+            dialogRef.close();
+        }
+    });
 }

@@ -30,6 +30,10 @@ dialog {
     border-radius: 16px;
     padding: 0;
 }
+dialog.opened::backdrop {
+    opacity: 0.8;
+    background-color: black;
+}
 
 .dialog-header {
     display: flex;

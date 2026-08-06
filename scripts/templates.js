@@ -79,7 +79,7 @@ function triggerDialogTemplate(currentPokemon, index) {
                 </table>
             </div>
 
-            <div>
+            <div style="display:none;">
                 <table>
                     <tr>
                         <th>hp</th>
