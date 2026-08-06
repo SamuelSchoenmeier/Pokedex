@@ -39,8 +39,14 @@ function triggerDialogTemplate(currentPokemon, index) {
                 class="dialog-img"
                 src="${currentPokemon.sprites.other["official-artwork"].front_default}"
                 alt="${currentPokemon.name}">
-            <div class="dialog-icons">
-                hier kommen die icons hin
+
+            <div class="icon-container" style="padding:4px 0;">
+                ${currentPokemon.types.map(type => `
+                    <img
+                        class="icon-dialog ${type.type.name}"
+                        src="../downloads/icons/${type.type.name}.svg"
+                        alt="${type.type.name}">
+                `).join("")}
             </div>
         </section>
         
