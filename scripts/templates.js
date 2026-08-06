@@ -6,9 +6,9 @@ function dialogTemplate(currentPokemon, index) {
                 <h2>${currentPokemon.name}</h2>
             </div>
 
-            <div class="img-container">
+            <div class="img-container ${currentPokemon.color}">
                 <img
-                    class="dialog-thumbnail ${currentPokemon.color}"
+                    class="dialog-thumbnail"
                     src="${currentPokemon.sprites.other["official-artwork"].front_default}"
                     alt="${currentPokemon.name}"
                 >
