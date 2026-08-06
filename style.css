@@ -65,3 +65,31 @@ footer {
     margin-bottom: 16px;
     width: 180px;
 }
+
+.icon {
+    height: 50px;
+    width: auto;
+    padding: 4px;
+}
+
+img, svg {
+    vertical-align: baseline;
+}
+
+.icon-container {
+    background-color: var(--primary-color);
+    width: 100%;
+    margin-top: auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img-container {
+    width: 100%;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

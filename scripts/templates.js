@@ -6,10 +6,23 @@ function dialogTemplate(currentPokemon, index) {
                 <p>#${currentPokemon.id}</p>
                 <h2>${currentPokemon.name}</h2>
             </div>
-            <img
-                class="dialog-thumbnail"
-                src="${currentPokemon.sprites.other["official-artwork"].front_default}"
-                alt="${currentPokemon.name}">
+
+            <div class="img-container">
+                <img
+                    class="dialog-thumbnail"
+                    src="${currentPokemon.sprites.other["official-artwork"].front_default}"
+                    alt="${currentPokemon.name}"
+                >
+            </div>
+            
+            <div class="icon-container">
+                ${currentPokemon.types.map(type => `
+                    <img
+                        class="icon ${type.type.name}"
+                        src="../downloads/icons/${type.type.name}.svg"
+                        alt="${type.type.name}">
+                `).join("")}
+            </div>
         </button>
             `;
 }
