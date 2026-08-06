@@ -94,3 +94,19 @@ img, svg {
     justify-content: center;
     align-items: center;
 }
+
+.yellow {
+    background-color: #FFD93D;
+}
+
+.red {
+    background-color: #FF6B6B;
+}
+
+.blue {
+    background-color: #4D96FF;
+}
+
+.green {
+    background-color: #6BCB77;
+}

@@ -1,4 +1,3 @@
-//              TODO: Icons hinzufügen
 function dialogTemplate(currentPokemon, index) {
     return  `
         <button class="dialog-trigger" onclick="openDialog(${index})">
@@ -9,7 +8,7 @@ function dialogTemplate(currentPokemon, index) {
 
             <div class="img-container">
                 <img
-                    class="dialog-thumbnail"
+                    class="dialog-thumbnail ${currentPokemon.color}"
                     src="${currentPokemon.sprites.other["official-artwork"].front_default}"
                     alt="${currentPokemon.name}"
                 >

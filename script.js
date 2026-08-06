@@ -9,14 +9,18 @@ function init() {
 
 async function onloadFunc() {
     let responseToJson = await loadData("pokemon?limit=20");
-    console.log(responseToJson);
-    
-
+    console.log(responseToJson);   //console log
     for (let currentPokemon of responseToJson.results) {
         let pokemonDetails = await loadDataFromUrl(currentPokemon.url);
+
+        let speciesDetails = await loadDataFromUrl(
+            pokemonDetails.species.url
+        );
+
+        pokemonDetails.color = speciesDetails.color.name;
+
         pokemon.push(pokemonDetails);
-        console.log(pokemonDetails);
-        
+        console.log(pokemonDetails);        //conlose log
     }
 
     renderContent();
