@@ -62,3 +62,21 @@ function closeDialog() {
         }
     });
 }
+
+function openStats() {
+    document.getElementById("main").classList.add("empty");
+    document.getElementById("stats").classList.remove("empty");
+    document.getElementById("evolution").classList.add("empty");
+}
+
+function openMain() {
+    document.getElementById("main").classList.remove("empty");
+    document.getElementById("stats").classList.add("empty");
+    document.getElementById("evolution").classList.add("empty");
+}
+
+function openEvolution() {
+    document.getElementById("evolution").classList.remove("empty");
+    document.getElementById("main").classList.add("empty");
+    document.getElementById("stats").classList.add("empty");
+}

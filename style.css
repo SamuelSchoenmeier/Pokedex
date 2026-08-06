@@ -110,3 +110,7 @@ img, svg {
 .green {
     background-color: #6BCB77;
 }
+
+.empty {
+    display: none;
+}

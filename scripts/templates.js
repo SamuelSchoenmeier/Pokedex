@@ -51,12 +51,12 @@ function triggerDialogTemplate(currentPokemon, index) {
         
         <section>
             <nav class="nav-dialog">
-                <button class="nav-dialog-btn">main</button>
-                <button class="nav-dialog-btn">stats</button>
-                <button class="nav-dialog-btn">evo chain</button>
+                <button onclick="openMain()" class="nav-dialog-btn">main</button>
+                <button onclick="openStats()" class="nav-dialog-btn">stats</button>
+                <button onclick="openEvolution()" class="nav-dialog-btn">evo chain</button>
             </nav>
 
-            <div style="display:none;">
+            <div id="main">
                 <table>
                     <tr>
                         <th>Height</th>
@@ -78,7 +78,7 @@ function triggerDialogTemplate(currentPokemon, index) {
                 </table>
             </div>
 
-            <div style="display:none;">
+            <div id="stats" class="empty">
                 <table>
                     <tr>
                         <th>hp</th>
@@ -131,7 +131,7 @@ function triggerDialogTemplate(currentPokemon, index) {
                 </table>
             </div>
 
-            <div></div>
+            <div id="evolution" class="empty">asdasdasd</div>
         </section>
             `;
 }
