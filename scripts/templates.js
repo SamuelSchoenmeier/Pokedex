@@ -57,7 +57,7 @@ function triggerDialogTemplate(currentPokemon, index) {
                 <button class="nav-dialog-btn">evo chain</button>
             </nav>
 
-            <div>
+            <div style="display:none;">
                 <table>
                     <tr>
                         <th>Height</th>
@@ -79,7 +79,58 @@ function triggerDialogTemplate(currentPokemon, index) {
                 </table>
             </div>
 
-            <div></div>
+            <div>
+                <table>
+                    <tr>
+                        <th>hp</th>
+                        <th>
+                            <div class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 215px; margin-left: 50px; border:solid;">
+                                <div class="progress-bar bg-danger" style="width: ${currentPokemon.stats[0].base_stat}%"></div>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>attack</th>
+                        <th>
+                            <div class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 215px; margin-left: 50px; border:solid;">
+                                <div class="progress-bar bg-danger" style="width: ${currentPokemon.stats[1].base_stat}%"></div>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>defense</th>
+                        <th>
+                            <div class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 215px; margin-left: 50px; border:solid;">
+                                <div class="progress-bar bg-danger" style="width: ${currentPokemon.stats[2].base_stat}%"></div>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>special-attack</th>
+                        <th>
+                            <div class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 215px; margin-left: 50px; border:solid;">
+                                <div class="progress-bar bg-danger" style="width: ${currentPokemon.stats[3].base_stat}%"></div>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>special-defense</th>
+                        <th>
+                            <div class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 215px; margin-left: 50px; border:solid;">
+                                <div class="progress-bar bg-danger" style="width: ${currentPokemon.stats[4].base_stat}%"></div>
+                            </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>speed</th>
+                        <th>
+                            <div class="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 215px; margin-left: 50px; border:solid;">
+                                <div class="progress-bar bg-danger" style="width: ${currentPokemon.stats[5].base_stat}%"></div>
+                            </div>
+                        </th>
+                    </tr>
+                </table>
+            </div>
 
             <div></div>
         </section>
