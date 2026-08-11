@@ -49,7 +49,7 @@ input {
 
 main {
     display: flex;
-    padding: 90px 40px;
+    padding: 90px 40px 0px 40px;
     background-color: var(--secondary-color);
     min-height: calc(100vh - 183px);
     text-align: center;
@@ -113,4 +113,16 @@ img, svg {
 
 .empty {
     display: none;
+}
+
+.load-more-container {
+    text-align: center;
+    background-color: var(--secondary-color);
+    padding: 60px 0;
+}
+
+.load-more-button {
+    padding: 9px;
+    border-radius: 8px;
+    border: 0;
 }
