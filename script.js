@@ -2,17 +2,32 @@ const BASE_URL = "https://pokeapi.co/api/v2/";
 
 let pokemon = [];
 
+let limit = 20;
+let offset = 0;
+let isLoading = false;
+
 function init() {
-    onloadFunc();
-    closeDialog();
+    loadPokemon();
 }
 
-async function onloadFunc() {
-    let responseToJson = await loadData("pokemon?limit=20");
-    console.log(responseToJson);   //console log
-    for (let currentPokemon of responseToJson.results) {
-        let pokemonDetails = await loadDataFromUrl(currentPokemon.url);
+function renderContent() {
+    let contentRef = document.getElementById("trigger");
+    contentRef.innerHTML = "";
 
+    for (let pokIndex = 0; pokIndex < pokemon.length; pokIndex++) {
+        contentRef.innerHTML += dialogTemplate(pokemon[pokIndex], pokIndex);
+    }
+}
+
+async function loadPokemon() {
+    if (isLoading) return;
+    isLoading = true;
+
+    let response = await loadData(`pokemon?limit=${limit}&offset=${offset}`);
+
+    for (let currentPokemon of response.results) {
+        let pokemonDetails = await loadDataFromUrl(currentPokemon.url);
+        
         let speciesDetails = await loadDataFromUrl(
             pokemonDetails.species.url
         );
@@ -20,10 +35,14 @@ async function onloadFunc() {
         pokemonDetails.color = speciesDetails.color.name;
 
         pokemon.push(pokemonDetails);
-        console.log(pokemonDetails);        //conlose log
+
+        console.log(pokemonDetails);     // console log
     }
 
     renderContent();
+
+    offset += limit;
+    isLoading = false;
 }
 
 async function loadData(path="") {
@@ -36,15 +55,6 @@ async function loadDataFromUrl(url) {
     let response = await fetch(url);
     let responseToJson = await response.json();
     return responseToJson;
-}
-
-function renderContent() {
-    let contentRef = document.getElementById("trigger");
-    contentRef.innerHTML = "";
-
-    for (let pokIndex = 0; pokIndex < pokemon.length; pokIndex++) {
-        contentRef.innerHTML += dialogTemplate(pokemon[pokIndex], pokIndex);
-    }
 }
 
 function openDialog(index) {
