@@ -43,9 +43,16 @@ dialog.opened::backdrop {
     padding: 8px;
 }
 
+.dialog-img-icon-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .dialog-img {
-    width: 132px;
     padding-top: 28px;
+    width: 100%;
+    height: 187px;
+    object-fit: contain;
 }
 
 .dialog-icons {

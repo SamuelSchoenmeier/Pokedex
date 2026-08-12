@@ -33,11 +33,13 @@ function triggerDialogTemplate(currentPokemon, index) {
             <h2>${currentPokemon.name}</h2>
         </div>
 
-        <section>
+        <section class="dialog-img-icon-container">
             <img
-                class="dialog-img"
+                class="dialog-img ${currentPokemon.color}"
                 src="${currentPokemon.sprites.other["official-artwork"].front_default}"
                 alt="${currentPokemon.name}">
+
+            <div class="seperator"></div>
 
             <div class="icon-container" style="padding:4px 0;">
                 ${currentPokemon.types.map(type => `
@@ -72,8 +74,10 @@ function triggerDialogTemplate(currentPokemon, index) {
                     </tr>
                     <tr>
                         <th>Abilities</th>
-                        <th>: ${currentPokemon.abilities[0].ability.name},
-                        ${currentPokemon.abilities[1].ability.name}</th>
+                        <th>: ${currentPokemon.abilities
+                                    .map(ability => ability.ability.name)
+                                    .join(", ")}
+                        </th>
                     </tr>
                 </table>
             </div>

@@ -12,7 +12,7 @@ function init() {
 }
 
 function renderContent() {
-    let contentRef = document.getElementById("trigger");
+    let contentRef = document.getElementById("trigger_pokemon");
     contentRef.innerHTML = "";
 
     for (let pokIndex = 0; pokIndex < pokemon.length; pokIndex++) {
@@ -59,6 +59,9 @@ async function loadDataFromUrl(url) {
 }
 
 function openDialog(index) {
+    console.log("Index:", index);
+    console.log("Pokemon:", pokemon[index]);
+
     let dialogRef = document.getElementById("dialog");
     dialogRef.innerHTML = triggerDialogTemplate(pokemon[index]);
     dialogRef.showModal();
