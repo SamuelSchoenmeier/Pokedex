@@ -8,6 +8,7 @@ let isLoading = false;
 
 function init() {
     loadPokemon();
+    closeDialog();
 }
 
 function renderContent() {
