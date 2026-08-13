@@ -25,7 +25,6 @@
 
 dialog {
     width: 400px;
-    height: 500px;
     border: 0;
     border-radius: 16px;
     padding: 0;
@@ -37,26 +36,22 @@ dialog.opened::backdrop {
 
 .dialog-header {
     display: flex;
-    gap: 120px;
+    justify-content: space-between;
     color: white;
-    background-color: var(--secondary-color);
-    padding: 8px;
+    padding: 34px 34px 16px;
 }
 
-.dialog-img-icon-container {
+.dialog-container {
     display: flex;
     flex-direction: column;
+    padding-bottom: 30px;
 }
 
 .dialog-img {
     padding-top: 28px;
     width: 100%;
-    height: 187px;
+    height: 155px;
     object-fit: contain;
-}
-
-.dialog-icons {
-    background-color: var(--secondary-color);
 }
 
 .nav-dialog {
@@ -93,7 +88,7 @@ dialog.opened::backdrop {
 }
 
 .icon-dialog {
-    height: 35px;
+    height: 42px;
     padding: 4px;
     border-radius: 100%;
     margin: 0;
@@ -102,4 +97,14 @@ dialog.opened::backdrop {
 .icon-dialog:hover{
     filter: saturate(200%);
     transform: scale(1.1);
+}
+
+.img-icon-container {
+    display: flex;
+}
+
+.pok-info {
+    background-color: var(--primary-color);
+    height: 100%;
+    color: white;
 }

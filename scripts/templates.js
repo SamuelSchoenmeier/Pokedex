@@ -28,26 +28,28 @@ function dialogTemplate(currentPokemon, index) {
 
 function triggerDialogTemplate(currentPokemon, index) {
     return  `
-        <div class="dialog-header">
-            <p>#${currentPokemon.id}</p>
-            <h2>${currentPokemon.name}</h2>
-        </div>
+        <section class="dialog-container ${currentPokemon.color}">
+            <div class="dialog-header">
+                <h2>${currentPokemon.name}</h2>
+                <p>#${currentPokemon.id}</p>
+            </div>
 
-        <section class="dialog-img-icon-container">
-            <img
-                class="dialog-img ${currentPokemon.color}"
-                src="${currentPokemon.sprites.other["official-artwork"].front_default}"
-                alt="${currentPokemon.name}">
+            <div class="img-icon-container">
+                
+                <div class="icon-container" style="padding:4px 0;">
+                    ${currentPokemon.types.map(type => `
+                        <img
+                            class="icon-dialog ${type.type.name}"
+                            src="../downloads/icons/${type.type.name}.svg"
+                            alt="${type.type.name}">
+                    `).join("")}
+                </div>
 
-            <div class="seperator"></div>
+                <img
+                    class="dialog-img"
+                    src="${currentPokemon.sprites.other["official-artwork"].front_default}"
+                    alt="${currentPokemon.name}">
 
-            <div class="icon-container" style="padding:4px 0;">
-                ${currentPokemon.types.map(type => `
-                    <img
-                        class="icon-dialog ${type.type.name}"
-                        src="../downloads/icons/${type.type.name}.svg"
-                        alt="${type.type.name}">
-                `).join("")}
             </div>
         </section>
         
@@ -58,7 +60,7 @@ function triggerDialogTemplate(currentPokemon, index) {
                 <button onclick="openEvolution()" class="nav-dialog-btn">evo chain</button>
             </nav>
 
-            <div id="main">
+            <div class="pok-info" id="main">
                 <table>
                     <tr>
                         <th>Height</th>
@@ -82,7 +84,7 @@ function triggerDialogTemplate(currentPokemon, index) {
                 </table>
             </div>
 
-            <div id="stats" class="empty">
+            <div id="stats" class="empty pok-info">
                 <table>
                     <tr>
                         <th>hp</th>
@@ -135,7 +137,7 @@ function triggerDialogTemplate(currentPokemon, index) {
                 </table>
             </div>
 
-            <div id="evolution" class="empty">asdasdasd</div>
+            <div id="evolution" class="empty pok-info">asdasdasd</div>
         </section>
             `;
 }
