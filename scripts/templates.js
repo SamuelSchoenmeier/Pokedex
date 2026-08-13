@@ -139,5 +139,11 @@ function triggerDialogTemplate(currentPokemon, index) {
 
             <div id="evolution" class="empty pok-info">asdasdasd</div>
         </section>
+
+        <section class="dialog-footer">
+            <img src="./img/left-right-btn.png" alt="previous">
+
+            <img src="./img/left-right-btn.png" alt="next">
+        </section>
             `;
 }
