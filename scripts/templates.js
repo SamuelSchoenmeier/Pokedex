@@ -141,9 +141,9 @@ function triggerDialogTemplate(currentPokemon, index) {
         </section>
 
         <section class="dialog-footer">
-            <img src="./img/left-right-btn.png" alt="previous">
+            <img class="next-presvius-btn" src="./img/left-right-btn.png" alt="previous">
 
-            <img src="./img/left-right-btn.png" alt="next">
+            <img class="next-presvius-btn" src="./img/left-right-btn.png" alt="next" style="transform: scaleX(-1);">
         </section>
             `;
 }

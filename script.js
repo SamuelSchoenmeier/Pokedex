@@ -65,16 +65,22 @@ function openDialog(index) {
     let dialogRef = document.getElementById("dialog");
     dialogRef.innerHTML = triggerDialogTemplate(pokemon[index]);
     dialogRef.showModal();
+
+    document.body.style.overflow = "hidden";
 }
 
 function closeDialog() {
     let dialogRef = document.getElementById("dialog");
+    dialogRef.close();
 
-    dialogRef.addEventListener("click", function(event) {
-        if (event.target === dialogRef) {
-            dialogRef.close();
-        }
-    });
+    document.body.style.overflow = "";
+}
+
+function checkBackdropClick(event) {
+    let dialogRef = document.getElementById("dialog");
+    if (event.target === dialogRef) {
+        closeDialog();
+    }
 }
 
 function openStats() {

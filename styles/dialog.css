@@ -108,3 +108,13 @@ dialog.opened::backdrop {
     height: 100%;
     color: white;
 }
+
+.dialog-footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+}
+
+.next-presvius-btn:hover {
+    cursor: pointer;
+}
