@@ -58,16 +58,16 @@ dialog.opened::backdrop {
     width: 100%;
     display: flex;
     background-color: var(--secondary-color);
+    border-radius: 16px 16px 0 0;
+    margin-top: -16px;
 }
 
 .nav-dialog-btn {
-    border-bottom: 0;
-    border-top: 0;
+    border: 0;
     background-color: transparent;
     color: white;
     width: inherit;
     padding: 0;
-    border-width: 1px;
     position: relative;
     padding: 8px;
 }
@@ -87,6 +87,14 @@ dialog.opened::backdrop {
     transform: scaleX(1);
 }
 
+.nav-btn-left {
+    border-top-left-radius: 16px;
+}
+
+.nav-btn-right {
+    border-top-right-radius: 16px;
+}
+
 .icon-dialog {
     height: 42px;
     padding: 4px;
@@ -104,8 +112,8 @@ dialog.opened::backdrop {
 }
 
 .pok-info {
-    background-color: var(--primary-color);
-    height: 100%;
+    background-color: var(--secondary-color);
+    height: 250px;
     color: white;
 }
 
@@ -117,4 +125,13 @@ dialog.opened::backdrop {
 
 .next-presvius-btn:hover {
     cursor: pointer;
+}
+
+.stats-wrapper {
+    padding-bottom: 16px;
+}
+
+.main-wrapper {
+    text-align: start;
+    padding: 20px;
 }
