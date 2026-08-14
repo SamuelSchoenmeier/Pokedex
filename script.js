@@ -59,11 +59,9 @@ async function loadDataFromUrl(url) {
 }
 
 function openDialog(index) {
-    console.log("Index:", index);
-    console.log("Pokemon:", pokemon[index]);
-
     let dialogRef = document.getElementById("dialog");
-    dialogRef.innerHTML = triggerDialogTemplate(pokemon[index]);
+
+    dialogRef.innerHTML = triggerDialogTemplate(pokemon[index], index);
     dialogRef.showModal();
 
     document.body.style.overflow = "hidden";
@@ -99,4 +97,14 @@ function openEvolution() {
     document.getElementById("evolution").classList.remove("empty");
     document.getElementById("main").classList.add("empty");
     document.getElementById("stats").classList.add("empty");
+}
+
+function printDialog(currentPokemon, index) {
+    let dialogRef = document.getElementById("dialog");
+    dialogRef.innerHTML = triggerDialogTemplate(currentPokemon, index);
+}
+
+function changePokemon(id, step) {
+    let newIndex = (id + step + pokemon.length) % pokemon.length;
+    printDialog(pokemon[newIndex], newIndex);
 }

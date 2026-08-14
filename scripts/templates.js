@@ -141,9 +141,13 @@ function triggerDialogTemplate(currentPokemon, index) {
         </section>
 
         <section class="dialog-footer">
-            <img class="next-presvius-btn" src="./img/left-right-btn.png" alt="previous">
+            <button class="next-presvius-btn" onclick="changePokemon(${index}, -1)">
+                <img src="./img/left-right-btn.png" alt="previous">
+            </button>
 
-            <img class="next-presvius-btn" src="./img/left-right-btn.png" alt="next" style="transform: scaleX(-1);">
-        </section>
+            <button class="next-presvius-btn" onclick="changePokemon(${index}, 1)">
+                <img src="./img/left-right-btn.png" alt="next" style="transform: scaleX(-1);">
+            </button>
+                </section>
             `;
 }

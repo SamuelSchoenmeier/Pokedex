@@ -113,7 +113,7 @@ dialog.opened::backdrop {
 
 .pok-info {
     background-color: var(--secondary-color);
-    height: 250px;
+    height: 300px;
     color: white;
 }
 
@@ -121,10 +121,7 @@ dialog.opened::backdrop {
     display: flex;
     justify-content: space-between;
     padding: 24px;
-}
-
-.next-presvius-btn:hover {
-    cursor: pointer;
+    background-color: var(--secondary-color);
 }
 
 .stats-wrapper {
@@ -134,4 +131,9 @@ dialog.opened::backdrop {
 .main-wrapper {
     text-align: start;
     padding: 20px;
+}
+
+.next-presvius-btn {
+    background-color: transparent;
+    border: 0;
 }
