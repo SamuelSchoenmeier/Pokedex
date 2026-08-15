@@ -35,6 +35,14 @@ async function loadPokemon() {
 
         pokemonDetails.color = speciesDetails.color.name;
 
+        let = evolutionDetails = await loadDataFromUrl(
+            speciesDetails.evolution_chain.url
+        );
+
+        pokemonDetails.evolution = getEvolutionChain(
+            evolutionDetails.chain
+        )
+
         pokemon.push(pokemonDetails);
 
         console.log(pokemonDetails);     // console log
@@ -56,6 +64,19 @@ async function loadDataFromUrl(url) {
     let response = await fetch(url);
     let responseToJson = await response.json();
     return responseToJson;
+}
+
+function getEvolutionChain(chain) {
+    let evolutions = [];
+
+    evolutions.push(chain.species.name);
+
+    if (chain.evolves_to.length > 0) {
+        for (let evolution of chain.evolves_to) {
+            evolutions.push(...getEvolutionChain(evolution));
+        }
+    }
+    return evolutions;
 }
 
 function openDialog(index) {
