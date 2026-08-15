@@ -41,6 +41,10 @@ async function loadPokemon() {
 
         pokemonDetails.evolution = getEvolutionChain(
             evolutionDetails.chain
+        );
+
+        pokemonDetails.evolutionPokemon = await loadEvolutionPokemon(
+            pokemonDetails.evolution
         )
 
         pokemon.push(pokemonDetails);
@@ -77,6 +81,16 @@ function getEvolutionChain(chain) {
         }
     }
     return evolutions;
+}
+
+async function loadEvolutionPokemon(evolutionNames) {
+    let evolutionPokemon = [];
+
+    for (let evolutionName of evolutionNames) {
+        let evolution = await loadData(`pokemon/${evolutionName}`);
+        evolutionPokemon.push(evolution);
+    }
+    return evolutionPokemon;
 }
 
 function openDialog(index) {
