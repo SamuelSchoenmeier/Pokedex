@@ -18,23 +18,23 @@
     <script src="./scripts/templates.js"></script>
 </head>
 <body onload="init()">
-    <header>
+    <header data-id="content">
         <a href="index.html">
             <img class="pokedex-logo" src="./img/pokedex-logo.png" alt="Pokedex">
             <p class="logo-txt">Pokedex</p>
         </a>
 
-        <input type="text">
+        <input type="text" data-id="search-input">
     </header>
 
     <main>
         <div class="dialog-trigger-container" id="trigger_pokemon"></div>
 
-        <dialog id="dialog" onclick="checkBackdropClick(event)"></dialog>
+        <dialog id="dialog" onclick="checkBackdropClick(event)" data-id="dialog"></dialog>
     </main>
 
     <div class="load-more-container" id="trigger">
-        <button class="load-more-btn" onclick="loadPokemon()">Mehr anzeigen</button>
+        <button class="load-more-btn" onclick="loadPokemon()" data-id="load-more-btn">Load More</button>
     </div>
 
     <footer>

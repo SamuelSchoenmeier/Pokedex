@@ -1,6 +1,6 @@
 function dialogTemplate(currentPokemon, index) {
     return  `
-        <button class="dialog-trigger" onclick="openDialog(${index})">
+        <button class="dialog-trigger" onclick="openDialog(${index})" data-id="card">
             <div class="dialog-trigger-txt">
                 <p>#${currentPokemon.id}</p>
                 <h2>${currentPokemon.name}</h2>
@@ -11,6 +11,7 @@ function dialogTemplate(currentPokemon, index) {
                     class="dialog-thumbnail"
                     src="${currentPokemon.sprites.other["official-artwork"].front_default}"
                     alt="${currentPokemon.name}"
+                    data-id="card-image"
                 >
             </div>
             
@@ -29,6 +30,7 @@ function dialogTemplate(currentPokemon, index) {
 
 function triggerDialogTemplate(currentPokemon, index) {
     return  `
+    <div data-id="overlay-pokemon-name">
         <section class="dialog-container ${currentPokemon.color}">
             <div class="dialog-header">
                 <h2>${currentPokemon.name}</h2>
@@ -50,7 +52,8 @@ function triggerDialogTemplate(currentPokemon, index) {
                 <img
                     class="dialog-img"
                     src="${currentPokemon.sprites.other["official-artwork"].front_default}"
-                    alt="${currentPokemon.name}">
+                    alt="${currentPokemon.name}"
+                    data-id="dialog-image">
 
             </div>
         </section>
@@ -159,13 +162,13 @@ function triggerDialogTemplate(currentPokemon, index) {
         </section>
 
         <section class="dialog-footer">
-            <button class="next-presvius-btn" onclick="changePokemon(${index}, -1)">
+            <button class="next-presvius-btn" onclick="changePokemon(${index}, -1)" data-id="prev-button">
                 <img src="./img/left-right-btn.png" alt="previous">
             </button>
 
-            <button class="next-presvius-btn" onclick="changePokemon(${index}, 1)">
+            <button class="next-presvius-btn" onclick="changePokemon(${index}, 1)" data-id="next-button">
                 <img src="./img/left-right-btn.png" alt="next" style="transform: scaleX(-1);">
             </button>
-                </section>
-            `;
+        </section>
+    </div>`;
 }
