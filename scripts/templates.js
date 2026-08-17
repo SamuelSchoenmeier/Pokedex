@@ -17,6 +17,7 @@ function dialogTemplate(currentPokemon, index) {
             <div class="icon-container">
                 ${currentPokemon.types.map(type => `
                     <img
+                        title="${type.type.name}"
                         class="icon ${type.type.name}"
                         src="../downloads/icons/${type.type.name}.svg"
                         alt="${type.type.name}">
@@ -39,6 +40,7 @@ function triggerDialogTemplate(currentPokemon, index) {
                 <div class="icon-container" style="padding:4px 0;">
                     ${currentPokemon.types.map(type => `
                         <img
+                            title="${type.type.name}"
                             class="icon-dialog ${type.type.name}"
                             src="../downloads/icons/${type.type.name}.svg"
                             alt="${type.type.name}">
