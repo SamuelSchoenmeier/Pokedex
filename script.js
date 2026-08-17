@@ -1,6 +1,7 @@
 const BASE_URL = "https://pokeapi.co/api/v2/";
 
 let pokemon = [];
+let apiCache = {};
 
 let limit = 20;
 let offset = 0;
@@ -9,6 +10,17 @@ let isLoading = false;
 function init() {
     loadPokemon();
     closeDialog();
+}
+
+// Catching: Hilfsfunktion zum abrufen von Daten mit Cache-Speicherungen
+async function fetchWithCache(url) {
+    if (apiCache[url]) {
+        return apiCache[url]; // Daten aus  der Cache verwenden
+    }
+    let response = await fetch(url);
+    let data = await response.json();
+    apiCache[url] = data;
+    return data
 }
 
 function renderContent() {
@@ -20,36 +32,22 @@ function renderContent() {
     }
 }
 
+// Fetch-then-render, Lazy loading
 async function loadPokemon() {
     if (isLoading) return;
     isLoading = true;
 
+    // Übersicht holen
     let response = await loadData(`pokemon?limit=${limit}&offset=${offset}`);
 
+    // Schnelles laden
     for (let currentPokemon of response.results) {
-        let pokemonDetails = await loadDataFromUrl(currentPokemon.url);
-        
-        let speciesDetails = await loadDataFromUrl(
-            pokemonDetails.species.url
-        );
+        let pokemonDetails = await fetchWithCache(currentPokemon.url);
 
+        let speciesDetails = await fetchWithCache(pokemonDetails.species.url);
         pokemonDetails.color = speciesDetails.color.name;
 
-        let = evolutionDetails = await loadDataFromUrl(
-            speciesDetails.evolution_chain.url
-        );
-
-        pokemonDetails.evolution = getEvolutionChain(
-            evolutionDetails.chain
-        );
-
-        pokemonDetails.evolutionPokemon = await loadEvolutionPokemon(
-            pokemonDetails.evolution
-        )
-
         pokemon.push(pokemonDetails);
-
-        console.log(pokemonDetails);     // console log
     }
 
     renderContent();
@@ -59,9 +57,7 @@ async function loadPokemon() {
 }
 
 async function loadData(path="") {
-    let response = await fetch(BASE_URL + path);
-    let responseToJson = await response.json();
-    return responseToJson;
+    return await fetchWithCache(BASE_URL + path);
 }
 
 async function loadDataFromUrl(url) {
@@ -93,10 +89,13 @@ async function loadEvolutionPokemon(evolutionNames) {
     return evolutionPokemon;
 }
 
-function openDialog(index) {
-    let dialogRef = document.getElementById("dialog");
+async function openDialog(index) {
+    await loadPokemonDetails(index);
 
-    dialogRef.innerHTML = triggerDialogTemplate(pokemon[index], index);
+    let selectedPokemon = pokemon[index];
+    printDialog(selectedPokemon, index);
+
+    let dialogRef = document.getElementById("dialog");
     dialogRef.showModal();
 
     document.body.style.overflow = "hidden";
@@ -139,7 +138,25 @@ function printDialog(currentPokemon, index) {
     dialogRef.innerHTML = triggerDialogTemplate(currentPokemon, index);
 }
 
-function changePokemon(id, step) {
+async function changePokemon(id, step) {
     let newIndex = (id + step + pokemon.length) % pokemon.length;
+    
+    await loadPokemonDetails(newIndex);
+    
     printDialog(pokemon[newIndex], newIndex);
+}
+
+async function loadPokemonDetails(index) {
+    let selectedPokemon = pokemon[index];
+
+    if (!selectedPokemon.evolutionPokemon) {
+        let speciesDetails = await fetchWithCache(selectedPokemon.species.url);
+        selectedPokemon.color = speciesDetails.color.name;
+
+        let evolutionDetails = await fetchWithCache(speciesDetails.evolution_chain.url);
+        let evolutionNames = getEvolutionChain(evolutionDetails.chain);
+
+        selectedPokemon.evolution = evolutionNames;
+        selectedPokemon.evolutionPokemon = await loadEvolutionPokemon(evolutionNames);
+    }
 }
