@@ -55,9 +55,9 @@ function triggerDialogTemplate(currentPokemon, index) {
         
         <section>
             <nav class="nav-dialog">
-                <button onclick="openMain()" class="nav-dialog-btn nav-btn-left">main</button>
-                <button onclick="openStats()" class="nav-dialog-btn">stats</button>
-                <button onclick="openEvolution()" class="nav-dialog-btn nav-btn-right">evo chain</button>
+                <button onclick="openMain()" class="nav-dialog-btn nav-btn-left">Main</button>
+                <button onclick="openStats()" class="nav-dialog-btn">Stats</button>
+                <button onclick="openEvolution()" class="nav-dialog-btn nav-btn-right">Evo chain</button>
             </nav>
 
             <div class="pok-info" id="main">
@@ -137,7 +137,23 @@ function triggerDialogTemplate(currentPokemon, index) {
                 </table>
             </div>
 
-            <div id="evolution" class="empty pok-info">asdasdasd</div>
+            <div id="evolution" class="empty pok-info">
+                <div class="evolution-wrapper">
+                    ${currentPokemon.evolutionPokemon.map((evolution, index) => `
+                        <div>
+                            <img
+                                class="evolution-img"
+                                src="${evolution.sprites.other["official-artwork"].front_default}"
+                                alt="${evolution.name}">
+                            <p>${evolution.name}</p>
+                        </div>
+
+                    ${index < currentPokemon.evolutionPokemon.length - 1
+                        ? `<img src="./img/double-arrows.png" alt="chain" style="height: 24px;">`
+                        : ""}
+                    `).join("")}
+                </div>
+            </div>
         </section>
 
         <section class="dialog-footer">

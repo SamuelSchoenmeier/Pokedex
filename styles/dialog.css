@@ -115,6 +115,7 @@ dialog.opened::backdrop {
     background-color: var(--secondary-color);
     height: 300px;
     color: white;
+    align-content: center;
 }
 
 .dialog-footer {
@@ -136,4 +137,15 @@ dialog.opened::backdrop {
 .next-presvius-btn {
     background-color: transparent;
     border: 0;
+}
+
+.evolution-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.evolution-img {
+    height: 80px;
+    margin: 16px;
 }
