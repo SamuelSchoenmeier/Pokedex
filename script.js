@@ -1,6 +1,8 @@
 const BASE_URL = "https://pokeapi.co/api/v2/";
 
 let pokemon = [];
+let pokemonNames = [];
+
 let apiCache = {};
 
 let limit = 20;
@@ -27,9 +29,22 @@ function renderContent() {
     let contentRef = document.getElementById("trigger_pokemon");
     contentRef.innerHTML = "";
 
-    for (let pokIndex = 0; pokIndex < pokemon.length; pokIndex++) {
-        contentRef.innerHTML += dialogTemplate(pokemon[pokIndex], pokIndex);
+    for (let pokIndex = 0; pokIndex < pokemonNames.length; pokIndex++) {
+        contentRef.innerHTML += dialogTemplate(pokemonNames[pokIndex], pokIndex);
     }
+}
+
+function filterAndShowNames() {
+    let inputRef = document.getElementById("search_input");
+    let filterWord = inputRef ? inputRef.value.toLowerCase().trim() : "";
+
+    if (filterWord === "") {
+        pokemonNames = pokemon;
+    } else {
+        pokemonNames = pokemon.filter(p => p.name.toLowerCase().includes(filterWord));
+    }
+
+    renderContent();
 }
 
 // Fetch-then-render, Lazy loading
@@ -50,7 +65,7 @@ async function loadPokemon() {
         pokemon.push(pokemonDetails);
     }
 
-    renderContent();
+    filterAndShowNames();
 
     offset += limit;
     isLoading = false;
@@ -92,7 +107,7 @@ async function loadEvolutionPokemon(evolutionNames) {
 async function openDialog(index) {
     await loadPokemonDetails(index);
 
-    let selectedPokemon = pokemon[index];
+    let selectedPokemon = pokemonNames[index];
     printDialog(selectedPokemon, index);
 
     let dialogRef = document.getElementById("dialog");
@@ -139,15 +154,15 @@ function printDialog(currentPokemon, index) {
 }
 
 async function changePokemon(id, step) {
-    let newIndex = (id + step + pokemon.length) % pokemon.length;
+    let newIndex = (id + step + pokemonNames.length) % pokemonNames.length;
     
     await loadPokemonDetails(newIndex);
     
-    printDialog(pokemon[newIndex], newIndex);
+    printDialog(pokemonNames[newIndex], newIndex);
 }
 
 async function loadPokemonDetails(index) {
-    let selectedPokemon = pokemon[index];
+    let selectedPokemon = pokemonNames[index];
 
     if (!selectedPokemon.evolutionPokemon) {
         let speciesDetails = await fetchWithCache(selectedPokemon.species.url);
