@@ -89,7 +89,7 @@ function triggerDialogTemplate(currentPokemon, index) {
                 </table>
             </div>
 
-            <div id="stats" class="empty pok-info">
+            <div id="stats" class="d-none pok-info">
                 <table>
                     <tr>
                         <th class="stats-wrapper">Hp</th>
@@ -142,7 +142,7 @@ function triggerDialogTemplate(currentPokemon, index) {
                 </table>
             </div>
 
-            <div id="evolution" class="empty pok-info">
+            <div id="evolution" class="d-none pok-info">
                 <div class="evolution-wrapper">
                     ${currentPokemon.evolutionPokemon.map((evolution, index) => `
                         <div>

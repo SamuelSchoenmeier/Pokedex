@@ -103,7 +103,7 @@ img, svg {
     align-items: center;
 }
 
-.empty {
+.d-none {
     display: none;
 }
 

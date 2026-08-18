@@ -18,7 +18,7 @@
     <script src="./scripts/templates.js"></script>
 </head>
 <body onload="init()">
-    <header data-id="content">
+    <header>
         <a href="index.html">
             <img class="pokedex-logo" src="./img/pokedex-logo.png" alt="Pokedex">
             <p class="logo-txt">Pokedex</p>
@@ -27,7 +27,7 @@
         <input id="search_input" type="text" oninput="filterAndShowNames()" placeholder="Search Pokemon" data-id="search-input">
     </header>
 
-    <main>
+    <main data-id="content">
         <h1>Pokedex</h1>
         <div class="dialog-trigger-container" id="trigger_pokemon"></div>
 

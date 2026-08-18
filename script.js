@@ -131,21 +131,21 @@ function checkBackdropClick(event) {
 }
 
 function openStats() {
-    document.getElementById("main").classList.add("empty");
-    document.getElementById("stats").classList.remove("empty");
-    document.getElementById("evolution").classList.add("empty");
+    document.getElementById("main").classList.add("d-none");
+    document.getElementById("stats").classList.remove("d-none");
+    document.getElementById("evolution").classList.add("d-none");
 }
 
 function openMain() {
-    document.getElementById("main").classList.remove("empty");
-    document.getElementById("stats").classList.add("empty");
-    document.getElementById("evolution").classList.add("empty");
+    document.getElementById("main").classList.remove("d-none");
+    document.getElementById("stats").classList.add("d-none");
+    document.getElementById("evolution").classList.add("d-none");
 }
 
 function openEvolution() {
-    document.getElementById("evolution").classList.remove("empty");
-    document.getElementById("main").classList.add("empty");
-    document.getElementById("stats").classList.add("empty");
+    document.getElementById("evolution").classList.remove("d-none");
+    document.getElementById("main").classList.add("d-none");
+    document.getElementById("stats").classList.add("d-none");
 }
 
 function printDialog(currentPokemon, index) {
