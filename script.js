@@ -175,3 +175,10 @@ async function loadPokemonDetails(index) {
         selectedPokemon.evolutionPokemon = await loadEvolutionPokemon(evolutionNames);
     }
 }
+
+function showSpinner() {
+    let spinner = document.getElementById("spinner");
+    if (spinner) {
+        spinner.classList.remove("d-none")
+    }
+}
