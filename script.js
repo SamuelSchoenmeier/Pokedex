@@ -52,23 +52,31 @@ async function loadPokemon() {
     if (isLoading) return;
     isLoading = true;
 
-    // Übersicht holen
-    let response = await loadData(`pokemon?limit=${limit}&offset=${offset}`);
+    showSpinner();
 
-    // Schnelles laden
-    for (let currentPokemon of response.results) {
-        let pokemonDetails = await fetchWithCache(currentPokemon.url);
+    try{
+        // Übersicht holen
+        let response = await loadData(`pokemon?limit=${limit}&offset=${offset}`);
 
-        let speciesDetails = await fetchWithCache(pokemonDetails.species.url);
-        pokemonDetails.color = speciesDetails.color.name;
+        // Schnelles laden
+        for (let currentPokemon of response.results) {
+            let pokemonDetails = await fetchWithCache(currentPokemon.url);
 
-        pokemon.push(pokemonDetails);
+            let speciesDetails = await fetchWithCache(pokemonDetails.species.url);
+            pokemonDetails.color = speciesDetails.color.name;
+
+            pokemon.push(pokemonDetails);
+        }
+
+        filterAndShowNames();
+
+        offset += limit;
+    } catch (error) {
+        console.error("Error loading Pokémon");
+    } finally {
+        hideSpinner();
+        isLoading = false;
     }
-
-    filterAndShowNames();
-
-    offset += limit;
-    isLoading = false;
 }
 
 async function loadData(path="") {
@@ -177,15 +185,17 @@ async function loadPokemonDetails(index) {
 }
 
 function showSpinner() {
-    let spinner = document.getElementById("spinner");
+    let spinner = document.querySelector(".loading-spinner-container");
     if (spinner) {
         spinner.classList.remove("d-none");
+        document.body.style.overflow = "hidden";
     }
 }
 
 function hideSpinner() {
-    let spinner = document.getElementById("spinner");
+    let spinner = document.querySelector(".loading-spinner-container");
     if (spinner) {
         spinner.classList.add("d-none");
+        document.body.style.overflow = "";
     }
 }
