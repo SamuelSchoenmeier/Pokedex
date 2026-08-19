@@ -179,6 +179,13 @@ async function loadPokemonDetails(index) {
 function showSpinner() {
     let spinner = document.getElementById("spinner");
     if (spinner) {
-        spinner.classList.remove("d-none")
+        spinner.classList.remove("d-none");
+    }
+}
+
+function hideSpinner() {
+    let spinner = document.getElementById("spinner");
+    if (spinner) {
+        spinner.classList.add("d-none");
     }
 }
