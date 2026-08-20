@@ -65,6 +65,9 @@ async function loadPokemon() {
             let speciesDetails = await fetchWithCache(pokemonDetails.species.url);
             pokemonDetails.color = speciesDetails.color.name;
 
+            // 🪄 NEU: Ersten Buchstaben direkt im Objekt großschreiben
+            pokemonDetails.name = pokemonDetails.name.charAt(0).toUpperCase() + pokemonDetails.name.slice(1);
+
             pokemon.push(pokemonDetails);
         }
 
