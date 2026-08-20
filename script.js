@@ -14,10 +14,9 @@ function init() {
     closeDialog();
 }
 
-// Catching: Hilfsfunktion zum abrufen von Daten mit Cache-Speicherungen
 async function fetchWithCache(url) {
     if (apiCache[url]) {
-        return apiCache[url]; // Daten aus  der Cache verwenden
+        return apiCache[url];
     }
     let response = await fetch(url);
     let data = await response.json();
@@ -47,39 +46,48 @@ function filterAndShowNames() {
     renderContent();
 }
 
-// Fetch-then-render, Lazy loading
 async function loadPokemon() {
     if (isLoading) return;
     isLoading = true;
-
     showSpinner();
 
-    try{
-        // Übersicht holen
-        let response = await loadData(`pokemon?limit=${limit}&offset=${offset}`);
-
-        // Schnelles laden
-        for (let currentPokemon of response.results) {
-            let pokemonDetails = await fetchWithCache(currentPokemon.url);
-
-            let speciesDetails = await fetchWithCache(pokemonDetails.species.url);
-            pokemonDetails.color = speciesDetails.color.name;
-
-            // 🪄 NEU: Ersten Buchstaben direkt im Objekt großschreiben
-            pokemonDetails.name = pokemonDetails.name.charAt(0).toUpperCase() + pokemonDetails.name.slice(1);
-
-            pokemon.push(pokemonDetails);
-        }
-
+    try {
+        let response = await loadPokemonData();
+        await addPokemon(response.results);
         filterAndShowNames();
-
         offset += limit;
     } catch (error) {
-        console.error("Error loading Pokémon");
-    } finally {
-        hideSpinner();
-        isLoading = false;
+        console.error("Error loading Pokémon", error);
     }
+
+    hideSpinner();
+    isLoading = false;
+}
+
+async function loadPokemonData() {
+    return await loadData(
+        `pokemon?limit=${limit}&offset=${offset}`
+    );
+}
+
+async function addPokemon(pokemonList) {
+    for (let currentPokemon of pokemonList) {
+        let details = await fetchWithCache(currentPokemon.url);
+        let species = await fetchWithCache(details.species.url);
+
+        details.color = species.color.name;
+        details.name = capitalizeName(details.name);
+
+        pokemon.push(details);
+    }
+}
+
+function capitalizeName(name) {
+    return name.charAt(0).toUpperCase() + name.slice(1);
+}
+
+async function processPokemon(pokemonList) {
+
 }
 
 async function loadData(path="") {
