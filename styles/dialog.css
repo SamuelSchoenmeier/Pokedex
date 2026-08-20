@@ -7,6 +7,17 @@
     color: white;
     padding: 0;
     border-radius: 16px;
+    z-index: -1;
+}
+
+.dialog-trigger-container .dialog-thumbnail,
+.dialog-trigger .dialog-thumbnail {
+    transition: transform 0.3s ease-in-out;
+}
+
+.dialog-trigger-container > div:hover .dialog-thumbnail,
+.dialog-trigger:hover .dialog-thumbnail {
+    transform: scale(1.2);
 }
 
 .dialog-trigger-txt {
@@ -17,11 +28,7 @@
 
 .dialog-thumbnail {
     width: 120px;
-    height: 120px;
-    object-fit: contain;
-    align-self: center;
 }
-
 
 dialog {
     width: 400px;
