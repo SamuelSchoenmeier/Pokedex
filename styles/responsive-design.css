@@ -1,0 +1,9 @@
+@media(max-width: 500px) {
+    header {
+        padding: 32px 8px;
+    }
+    
+    input {
+        width: 135px;
+    }
+}
