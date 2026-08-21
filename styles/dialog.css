@@ -147,6 +147,8 @@ dialog.opened::backdrop {
 
 .stats-wrapper {
     padding-bottom: 16px;
+    text-align: start;
+    padding-left: 20px;
 }
 
 .main-wrapper {
@@ -168,4 +170,8 @@ dialog.opened::backdrop {
 .evolution-img {
     height: 80px;
     margin: 16px;
+}
+
+.progress {
+    width: 177px;
 }
