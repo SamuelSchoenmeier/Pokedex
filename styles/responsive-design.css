@@ -8,3 +8,8 @@
     }
 }
 
+@media(max-width: 495px) {
+    .main-wrapper {
+        font-weight: 500;
+    }
+}
