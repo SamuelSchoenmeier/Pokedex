@@ -102,14 +102,6 @@ img, svg {
     gap: 10px;
 }
 
-.img-container {
-    width: 100%;
-    background-color: var(--secondary-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .d-none {
     display: none;
 }

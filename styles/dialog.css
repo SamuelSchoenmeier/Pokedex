@@ -1,5 +1,5 @@
 .dialog-trigger {
-    border: 0;
+    border: 3px solid black;
     margin: 8px;
     width: 200px;
     height: 250px;
@@ -24,6 +24,16 @@
     display: flex;
     gap: 16px;
     padding: 12px;
+    border-bottom: 2px solid black;
+}
+
+.img-container {
+    width: 100%;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2px solid black;
 }
 
 .dialog-thumbnail {
