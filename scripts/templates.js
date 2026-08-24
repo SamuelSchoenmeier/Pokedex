@@ -1,6 +1,6 @@
 function dialogTemplate(currentPokemon, index) {
     return  `
-        <button class="dialog-trigger" onclick="openDialog(${index})" data-id="card">
+        <button class="dialog-trigger" onclick="openDialog(${index})" data-id="card" aria-haspopup="dialog" aria-controls="dialog">
             <div class="dialog-trigger-txt">
                 <p>#${currentPokemon.id}</p>
                 <h2>${currentPokemon.name}</h2>
@@ -33,7 +33,7 @@ function triggerDialogTemplate(currentPokemon, index) {
     <div data-id="overlay-pokemon-name">
         <section class="dialog-container ${currentPokemon.color}">
             <div class="dialog-header">
-                <h2>${currentPokemon.name}</h2>
+                <h2 id="dialog_title">${currentPokemon.name}</h2>
                 <p>#${currentPokemon.id}</p>
             </div>
 
