@@ -44,8 +44,6 @@ input {
 
 table {
     justify-self: center;
-    max-width: 392px;
-    min-width: 392px;
 }
 .pokedex-logo {
     width: 52px;
