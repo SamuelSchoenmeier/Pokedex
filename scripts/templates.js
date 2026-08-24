@@ -66,7 +66,7 @@ function triggerDialogTemplate(currentPokemon, index) {
             </nav>
 
             <div class="pok-info" id="main">
-                <table style="max-width: 392px; min-width: 392px;">
+                <table class="pok-info-wrapper">
                     <tr>
                         <th class="main-wrapper">Height</th>
                         <th class="main-wrapper">: ${currentPokemon.height} m</th>

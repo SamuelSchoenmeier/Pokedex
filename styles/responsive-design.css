@@ -19,6 +19,13 @@
     }
 }
 
+@media(max-width: 440px) {
+    .pok-info-wrapper {
+        max-width: 302px;
+        min-width: 302px;
+    }
+}
+
 @media(max-width: 415px) {
     .progress {
         width: 150px;
@@ -32,5 +39,10 @@
 @media(max-width: 350px) {
     .progress {
         width: 130px;
+    }
+
+    .pok-info-wrapper {
+        max-width: 260px;
+        min-width: 260px;
     }
 }

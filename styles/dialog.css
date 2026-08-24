@@ -138,6 +138,11 @@ dialog.opened::backdrop {
     align-content: center;
 }
 
+.pok-info-wrapper {
+    max-width: 392px;
+    min-width: 392px;
+}
+
 .dialog-footer {
     display: flex;
     justify-content: space-between;
