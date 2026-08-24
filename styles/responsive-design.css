@@ -24,6 +24,20 @@
         max-width: 302px;
         min-width: 302px;
     }
+
+    .evolution-wrapper {
+        flex-direction: column;
+        max-height: 250px;
+        overflow-y: auto;
+        scrollbar-color: #ff0000  transparent;
+        justify-content: flex-start;
+        border: 3px solid rgb(169 0 0);
+        margin: 8px;
+    }
+
+    .evolution-img {
+        margin: 16px 0;
+    }
 }
 
 @media(max-width: 415px) {
