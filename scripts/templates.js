@@ -1,6 +1,6 @@
 function dialogTemplate(currentPokemon, index) {
     return  `
-        <button class="dialog-trigger" onclick="openDialog(${index})" data-id="card" aria-haspopup="dialog" aria-controls="dialog">
+        <button class="dialog-trigger" onclick="openDialog(${index})" data-id="card" aria-haspopup="dialog" aria-controls="dialog" aria-label="open pokemon info">
             <div class="dialog-trigger-txt">
                 <p>#${currentPokemon.id}</p>
                 <h2>${currentPokemon.name}</h2>
@@ -60,9 +60,9 @@ function triggerDialogTemplate(currentPokemon, index) {
         
         <section>
             <nav class="nav-dialog">
-                <button onclick="openMain()" class="nav-dialog-btn nav-btn-left">Main</button>
-                <button onclick="openStats()" class="nav-dialog-btn">Stats</button>
-                <button onclick="openEvolution()" class="nav-dialog-btn nav-btn-right">Evo chain</button>
+                <button onclick="openMain()" class="nav-dialog-btn nav-btn-left" aria-label="pokemon main information">Main</button>
+                <button onclick="openStats()" class="nav-dialog-btn" aria-label="pokemon stats">Stats</button>
+                <button onclick="openEvolution()" class="nav-dialog-btn nav-btn-right" aria-label="pokemon evolution chain">Evo chain</button>
             </nav>
 
             <div class="pok-info" id="main">
@@ -162,11 +162,11 @@ function triggerDialogTemplate(currentPokemon, index) {
         </section>
 
         <section class="dialog-footer">
-            <button class="next-presvius-btn" onclick="changePokemon(${index}, -1)" data-id="prev-button">
+            <button class="next-presvius-btn" onclick="changePokemon(${index}, -1)" data-id="prev-button" aria-label="open next pokemon">
                 <img src="./img/left-right-btn.png" alt="previous">
             </button>
 
-            <button class="next-presvius-btn" onclick="changePokemon(${index}, 1)" data-id="next-button">
+            <button class="next-presvius-btn" onclick="changePokemon(${index}, 1)" data-id="next-button" aria-label="open previus pokemon">
                 <img src="./img/left-right-btn.png" alt="next" style="transform: scaleX(-1);">
             </button>
         </section>

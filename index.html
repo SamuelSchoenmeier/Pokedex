@@ -23,7 +23,7 @@
 </head>
 <body onload="init()">
     <header>
-        <a href="index.html">
+        <a href="index.html" aria-label="reload page">
             <img class="pokedex-logo" src="./img/pokedex-logo.png" alt="Pokedex">
             <p class="logo-txt">Pokedex</p>
         </a>
@@ -39,7 +39,7 @@
     </main>
 
     <div class="load-more-container" id="trigger">
-        <button class="load-more-btn" onclick="loadPokemon()" data-id="load-more-btn">Load More</button>
+        <button class="load-more-btn" onclick="loadPokemon()" data-id="load-more-btn" aria-label="load more pokemons">Load More</button>
     </div>
 
     <div class="loading-spinner-container d-none">
