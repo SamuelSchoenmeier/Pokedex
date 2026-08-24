@@ -159,6 +159,7 @@ dialog.opened::backdrop {
 .main-wrapper {
     text-align: start;
     padding: 20px;
+    font-weight: 600;
 }
 
 .next-presvius-btn {

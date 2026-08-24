@@ -10,7 +10,6 @@
 
 @media(max-width: 495px) {
     .main-wrapper {
-        font-weight: 500;
         padding: 13px 20px;
     }
 
@@ -37,6 +36,10 @@
 
     .evolution-img {
         margin: 16px 0;
+    }
+
+    .nav-dialog-btn {
+        font-weight: 600;
     }
 }
 

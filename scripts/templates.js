@@ -150,7 +150,7 @@ function triggerDialogTemplate(currentPokemon, index) {
                                 class="evolution-img"
                                 src="${evolution.sprites.other["official-artwork"].front_default}"
                                 alt="${evolution.name}">
-                            <p>${evolution.name}</p>
+                            <p style="font-weight:500;">${evolution.name}</p>
                         </div>
 
                     ${index < currentPokemon.evolutionPokemon.length - 1
