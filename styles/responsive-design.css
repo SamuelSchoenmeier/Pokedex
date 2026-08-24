@@ -11,5 +11,26 @@
 @media(max-width: 495px) {
     .main-wrapper {
         font-weight: 500;
+        padding: 13px 20px;
+    }
+
+    .stats-wrapper {
+        font-weight: 500;
+    }
+}
+
+@media(max-width: 415px) {
+    .progress {
+        width: 150px;
+        margin-left: 16px;
+    }
+    .stats-wrapper {
+        padding-left: 0;
+    }
+}
+
+@media(max-width: 350px) {
+    .progress {
+        width: 130px;
     }
 }

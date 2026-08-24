@@ -174,4 +174,5 @@ dialog.opened::backdrop {
 
 .progress {
     width: 177px;
+    margin-left: 20px;
 }
