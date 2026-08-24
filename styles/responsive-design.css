@@ -41,6 +41,11 @@
     .nav-dialog-btn {
         font-weight: 600;
     }
+
+    .double-arrow {
+        transform: rotate(90deg);
+        margin-top: 16px;
+    }
 }
 
 @media(max-width: 415px) {

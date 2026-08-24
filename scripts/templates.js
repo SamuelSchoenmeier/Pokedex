@@ -154,7 +154,7 @@ function triggerDialogTemplate(currentPokemon, index) {
                         </div>
 
                     ${index < currentPokemon.evolutionPokemon.length - 1
-                        ? `<img src="./img/double-arrows.png" alt="chain" style="height: 24px;">`
+                        ? `<img class="double-arrow" src="./img/double-arrows.png" alt="chain" style="height: 24px;">`
                         : ""}
                     `).join("")}
                 </div>
