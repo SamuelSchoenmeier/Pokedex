@@ -21,8 +21,6 @@
 }
 
 .dialog-trigger-txt {
-    display: flex;
-    gap: 16px;
     padding: 12px;
     border-bottom: 2px solid black;
 }
@@ -181,4 +179,11 @@ dialog.opened::backdrop {
 .progress {
     width: 177px;
     margin-left: 20px;
+}
+
+.evolution-scroll {
+    max-height: 250px;
+    overflow-y: auto;
+    justify-content: flex-start;
+    scrollbar-color: #ff0000 transparent;
 }

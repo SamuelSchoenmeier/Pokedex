@@ -2,7 +2,6 @@ function dialogTemplate(currentPokemon, index) {
     return  `
         <button class="dialog-trigger" onclick="openDialog(${index})" data-id="card" aria-haspopup="dialog" aria-controls="dialog" aria-label="open pokemon info">
             <div class="dialog-trigger-txt">
-                <p>#${currentPokemon.id}</p>
                 <h2>${currentPokemon.name}</h2>
             </div>
 
@@ -143,7 +142,7 @@ function triggerDialogTemplate(currentPokemon, index) {
             </div>
 
             <div id="evolution" class="d-none pok-info">
-                <div class="evolution-wrapper">
+                <div class="evolution-wrapper ${currentPokemon.evolutionPokemon.length >= 4 ? "evolution-scroll" : ""}">
                     ${currentPokemon.evolutionPokemon.map((evolution, index) => `
                         <div>
                             <img
