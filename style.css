@@ -35,11 +35,26 @@ p {
     margin: 0 !important;
     align-self: center !important;
     font-size: 18px;
+    color: white;
+}
+
+.filter-container {
+    display: flex;
 }
 
 input {
-    height: 20px;
+    height: 30px;
     margin-top: 14px !important;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.filter-btn {
+    height: 30px;
+    margin-top: 14px;
+    border: 1px solid gray;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 table {
@@ -112,8 +127,10 @@ img, svg {
     padding: 60px 0;
 }
 
-.load-more-button {
-    padding: 9px;
-    border-radius: 8px;
-    border: 0;
+.load-more-btn {
+    padding: 16px;
+    border-radius: 16px;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
 }

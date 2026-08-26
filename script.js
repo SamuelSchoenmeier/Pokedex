@@ -22,14 +22,24 @@ function renderContent() {
 
 function filterAndShowNames() {
     let inputRef = document.getElementById("search_input");
-    let filterWord = inputRef ? inputRef.value.toLowerCase().trim() : "";
+    let filterWord = inputRef.value.toLowerCase().trim();
+    let contentRef = document.getElementById("trigger_pokemon");
 
     if (filterWord === "") {
         pokemonNames = pokemon;
-    } else {
-        pokemonNames = pokemon.filter(p => p.name.toLowerCase().includes(filterWord));
+        renderContent();
+        return;
     }
 
+    if (filterWord.length < 3) {
+        contentRef.innerHTML = "<p>Please enter at least 3 characters.</p>";
+        return;
+    }
+    pokemonNames = pokemon.filter(p => p.name.toLowerCase().includes(filterWord));
+    if (pokemonNames.length === 0) {
+        contentRef.innerHTML = "<p>No Pokemon found.</p>";
+        return;
+    }
     renderContent();
 }
 
@@ -41,7 +51,10 @@ async function loadPokemon() {
     try {
         let response = await loadPokemonData();
         await addPokemon(response.results);
-        filterAndShowNames();
+
+        pokemonNames = pokemon;
+        renderContent();
+
         offset += limit;
     } catch (error) {
         console.error("Error loading Pokémon", error);

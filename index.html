@@ -28,7 +28,10 @@
             <p class="logo-txt">Pokedex</p>
         </a>
 
-        <input id="search_input" type="text" oninput="filterAndShowNames()" placeholder="Search Pokemon" data-id="search-input">
+        <div class="filter-container">
+            <input id="search_input" type="text" placeholder="Search Pokemon" data-id="search-input">
+            <button class="filter-btn" id="search_btn" onclick="filterAndShowNames()" aria-label="search pokemon">Search</button>
+        </div>
     </header>
 
     <main data-id="content">
