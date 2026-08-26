@@ -135,8 +135,21 @@ async function loadSearchPokemon(result) {
 }
 
 async function loadSearchResults(results) {
+    showSpinner();
     pokemonNames = [];
 
+    try {
+        await loadSearchPokemonList(results);
+        renderContent();
+        showAllButton();
+    } catch (error) {
+        console.error("Error searching Pokémon", error);
+    }
+
+    hideSpinner();
+}
+
+async function loadSearchPokemonList(results) {
     for (let result of results) {
         let currentPokemon = pokemon.find(
             p => p.name.toLowerCase() === result.name
@@ -149,10 +162,6 @@ async function loadSearchResults(results) {
 
         pokemonNames.push(currentPokemon);
     }
-
-    renderContent();
-    showAllButton();
-
 }
 
 async function addPokemon(pokemonList) {
