@@ -23,24 +23,47 @@ function renderContent() {
 function filterAndShowNames() {
     let inputRef = document.getElementById("search_input");
     let filterWord = inputRef.value.toLowerCase().trim();
-    let contentRef = document.getElementById("trigger_pokemon");
+    search(filterWord);
+}
 
+function search(filterWord) {
     if (filterWord === "") {
-        pokemonNames = pokemon;
-        renderContent();
+        showAllPokemon();
         return;
     }
 
     if (filterWord.length < 3) {
-        contentRef.innerHTML = "<p>Please enter at least 3 characters.</p>";
+        showSearchMessage();
         return;
     }
-    pokemonNames = pokemon.filter(p => p.name.toLowerCase().includes(filterWord));
+
+    filterPokemon(filterWord);
+}
+
+function filterPokemon(filterWord) {
+    pokemonNames = pokemon.filter(p =>
+        p.name.toLowerCase().includes(filterWord)
+    );
+
     if (pokemonNames.length === 0) {
-        contentRef.innerHTML = "<p data-id=`not-found`>No Pokemon found.</p>";
+        noPokemonFound();
         return;
     }
+    
     renderContent();
+}
+
+function showAllPokemon() {
+    pokemonNames = pokemon;
+    renderContent();
+}
+
+function showSearchMessage() {
+    document.getElementById("trigger_pokemon").innerHTML = "<p>Please enter at least 3 characters.</p>";
+}
+
+function noPokemonFound() {
+    document.getElementById("trigger_pokemon").innerHTML = '<p data-id="not-found">No Pokemon found.</p>';
 }
 
 async function loadPokemon() {
