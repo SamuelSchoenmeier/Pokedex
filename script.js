@@ -37,7 +37,7 @@ function filterAndShowNames() {
     }
     pokemonNames = pokemon.filter(p => p.name.toLowerCase().includes(filterWord));
     if (pokemonNames.length === 0) {
-        contentRef.innerHTML = "<p>No Pokemon found.</p>";
+        contentRef.innerHTML = "<p data-id=`not-found`>No Pokemon found.</p>";
         return;
     }
     renderContent();
