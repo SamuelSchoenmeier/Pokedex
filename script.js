@@ -49,7 +49,7 @@ function filterPokemon(filterWord) {
         noPokemonFound();
         return;
     }
-    
+
     renderContent();
 }
 
@@ -72,19 +72,21 @@ async function loadPokemon() {
     showSpinner();
 
     try {
-        let response = await loadPokemonData();
-        await addPokemon(response.results);
-
-        pokemonNames = pokemon;
-        renderContent();
-
-        offset += limit;
+        await loadPokemonContent();
     } catch (error) {
         console.error("Error loading Pokémon", error);
     }
 
     hideSpinner();
     isLoading = false;
+}
+
+async function loadPokemonContent() {
+    let response = await loadPokemonData();
+    await addPokemon(response.results);
+    pokemonNames = pokemon;
+    renderContent();
+    offset += limit;
 }
 
 async function loadPokemonData() {
