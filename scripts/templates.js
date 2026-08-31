@@ -19,7 +19,7 @@ function dialogTemplate(currentPokemon, index) {
                     <img
                         title="${type.type.name}"
                         class="icon ${type.type.name}"
-                        src="../downloads/icons/${type.type.name}.svg"
+                        src="./downloads/icons/${type.type.name}.svg"
                         alt="${type.type.name}">
                 `).join("")}
             </div>
@@ -43,7 +43,7 @@ function triggerDialogTemplate(currentPokemon, index) {
                         <img
                             title="${type.type.name}"
                             class="icon-dialog ${type.type.name}"
-                            src="../downloads/icons/${type.type.name}.svg"
+                            src="./downloads/icons/${type.type.name}.svg"
                             alt="${type.type.name}">
                     `).join("")}
                 </div>
