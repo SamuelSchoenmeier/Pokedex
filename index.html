@@ -28,10 +28,16 @@
             <p class="logo-txt">Pokedex</p>
         </a>
 
-        <form class="filter-container">
+        <form class="filter-container" onsubmit="filterAndShowNames(event)">
             <input id="search_input" type="text" placeholder="Search Pokemon" data-id="search-input">
-            <button class="filter-btn" id="search_btn" onclick="filterAndShowNames()" aria-label="search pokemon">Search</button>
-        </form>
+            <button
+                class="filter-btn"
+                id="search_btn"
+                type="submit"
+                aria-label="search pokemon">
+                Search
+            </button>
+</form>
     </header>
 
     <main data-id="content">

@@ -47,7 +47,9 @@ async function loadSearchPokemon(results) {
     renderContent();
 }
 
-function filterAndShowNames() {
+function filterAndShowNames(event) {
+    event.preventDefault();
+
     let inputRef = document.getElementById("search_input");
     let filterWord = inputRef.value.toLowerCase().trim();
     search(filterWord);
