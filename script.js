@@ -6,12 +6,32 @@ let limit = 20;
 let offset = 0;
 let isLoading = false;
 
+const TYPE_COLORS = {
+    fire: "red",
+    water: "blue",
+    grass: "green",
+    electric: "yellow",
+    psychic: "pink",
+    ice: "lightblue",
+    dragon: "purple",
+    dark: "black",
+    fairy: "pink",
+    normal: "gray",
+    fighting: "orange",
+    flying: "indigo",
+    poison: "purple",
+    ground: "brown",
+    rock: "gray",
+    bug: "lightgreen",
+    ghost: "purple",
+    steel: "gray"
+};
+
 async function init() {
     await loadAllPokemonNames();
     loadPokemon();
     closeDialog();
 }
-
 
 function renderContent() {
     let contentRef = document.getElementById("trigger_pokemon");
@@ -28,23 +48,6 @@ async function loadAllPokemonNames() {
     allPokemonNames = response.results.filter(p =>
         !p.name.includes("-")
     );
-}
-
-async function loadSearchPokemon(results) {
-    pokemonNames = [];
-
-    for (let result of results) {
-        let currentPokemon = pokemon.find(p => p.name.toLowerCase() === result.name);
-
-        if (!currentPokemon) {
-            currentPokemon = await loadPokemonDetailsByUrl(result.url);
-            pokemon.push(currentPokemon);
-        }
-
-        pokemonNames.push(currentPokemon);
-    }
-
-    renderContent();
 }
 
 function filterAndShowNames(event) {
@@ -126,11 +129,18 @@ async function loadPokemonData() {
     );
 }
 
+function getPokemonColor(details) {
+    if (details.types && details.types.length > 0) {
+        let primaryType = details.types[0].type.name;
+        return TYPE_COLORS[primaryType] || "gray";
+    }
+    return "gray";
+}
+
 async function loadSearchPokemon(result) {
     let details = await fetchWithCache(result.url);
-    let species = await fetchWithCache(details.species.url);
 
-    details.color = species.color.name;
+    details.color = getPokemonColor(details);
     details.name = capitalizeName(details.name);
 
     return details;
@@ -169,9 +179,8 @@ async function loadSearchPokemonList(results) {
 async function addPokemon(pokemonList) {
     for (let currentPokemon of pokemonList) {
         let details = await fetchWithCache(currentPokemon.url);
-        let species = await fetchWithCache(details.species.url);
 
-        details.color = species.color.name;
+        details.color = getPokemonColor(details);
         details.name = capitalizeName(details.name);
 
         pokemon.push(details);
@@ -181,7 +190,6 @@ async function addPokemon(pokemonList) {
 function capitalizeName(name) {
     return name.charAt(0).toUpperCase() + name.slice(1);
 }
-
 
 function getEvolutionChain(chain) {
     let evolutions = [];
