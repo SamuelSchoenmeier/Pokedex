@@ -116,6 +116,7 @@ img, svg {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    padding: 8px;
 }
 
 .d-none {
