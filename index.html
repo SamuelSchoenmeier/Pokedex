@@ -21,15 +21,29 @@
     <script src="script.js"></script>
     <script src="./scripts/templates.js"></script>
 </head>
+
 <body onload="init()">
+
     <header>
         <a href="index.html" aria-label="reload page">
-            <img class="pokedex-logo" src="./img/pokedex-logo.png" alt="Pokedex">
+            <img
+                class="pokedex-logo"
+                src="./img/pokedex-logo.png"
+                alt="Pokedex">
+
             <p class="logo-txt">Pokedex</p>
         </a>
 
-        <form class="filter-container" onsubmit="filterAndShowNames(event)">
-            <input id="search_input" type="text" placeholder="Search Pokemon" data-id="search-input">
+        <form
+            class="filter-container"
+            onsubmit="filterAndShowNames(event)">
+
+            <input
+                id="search_input"
+                type="text"
+                placeholder="Search Pokemon"
+                data-id="search-input">
+
             <button
                 class="filter-btn"
                 id="search_btn"
@@ -37,26 +51,62 @@
                 aria-label="search pokemon">
                 Search
             </button>
-</form>
+        </form>
     </header>
 
     <main data-id="content">
-        <h1>Pokedex</h1>
-        <div class="dialog-trigger-container" id="trigger_pokemon"></div>
 
-        <dialog id="dialog" onclick="checkBackdropClick(event)" data-id="dialog" aria-labelledby="dialog_title"></dialog>
+        <h1>Pokedex</h1>
+
+        <div
+            class="dialog-trigger-container"
+            id="trigger_pokemon">
+        </div>
+
+        <dialog
+            id="dialog"
+            onclick="checkBackdropClick(event)"
+            data-id="dialog"
+            aria-labelledby="dialog_title">
+
+            <div id="dialog-content"></div>
+
+            <div
+                class="loading-spinner-container d-none"
+                id="dialog-spinner">
+
+                <div class="loading-spinner"></div>
+            </div>
+
+        </dialog>
     </main>
 
-    <div class="load-more-container" id="trigger">
-        <button class="load-more-btn" onclick="loadPokemon()" data-id="load-more-btn" aria-label="load more pokemons">Load More</button>
+    <div
+        class="load-more-container"
+        id="trigger">
+
+        <button
+            class="load-more-btn"
+            onclick="loadPokemon()"
+            data-id="load-more-btn"
+            aria-label="load more pokemons">
+            Load More
+        </button>
     </div>
 
-    <div class="loading-spinner-container d-none">
-        <div class="loading-spinner" id="loading_spinner"></div>
+    <div
+        class="loading-spinner-container d-none"
+        id="page-spinner">
+
+        <div class="loading-spinner"></div>
     </div>
 
-        <footer>
-        <img class="da-logo" src="img/DA-logo.png" alt="DA logo">
+    <footer>
+        <img
+            class="da-logo"
+            src="img/DA-logo.png"
+            alt="DA logo">
     </footer>
+
 </body>
 </html>

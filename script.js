@@ -38,7 +38,10 @@ function renderContent() {
     contentRef.innerHTML = "";
 
     for (let pokIndex = 0; pokIndex < pokemonNames.length; pokIndex++) {
-        contentRef.innerHTML += dialogTemplate(pokemonNames[pokIndex], pokIndex);
+        contentRef.innerHTML += dialogTemplate(
+            pokemonNames[pokIndex],
+            pokIndex
+        );
     }
 }
 
@@ -55,6 +58,7 @@ function filterAndShowNames(event) {
 
     let inputRef = document.getElementById("search_input");
     let filterWord = inputRef.value.toLowerCase().trim();
+
     search(filterWord);
 }
 
@@ -87,21 +91,26 @@ async function filterPokemon(filterWord) {
 
 function showAllPokemon() {
     document.getElementById("search_input").value = "";
+
     pokemonNames = pokemon;
+
     renderContent();
     loadMoreButton();
 }
 
 function showSearchMessage() {
-    document.getElementById("trigger_pokemon").innerHTML = "<p>Please enter at least 3 characters.</p>";
+    document.getElementById("trigger_pokemon").innerHTML =
+        "<p>Please enter at least 3 characters.</p>";
 }
 
 function noPokemonFound() {
-    document.getElementById("trigger_pokemon").innerHTML = '<p data-id="not-found">No Pokemon found.</p>';
+    document.getElementById("trigger_pokemon").innerHTML =
+        '<p data-id="not-found">No Pokemon found.</p>';
 }
 
 async function loadPokemon() {
     if (isLoading) return;
+
     isLoading = true;
     showSpinner();
 
@@ -117,9 +126,12 @@ async function loadPokemon() {
 
 async function loadPokemonContent() {
     let response = await loadPokemonData();
+
     await addPokemon(response.results);
+
     pokemonNames = pokemon;
     renderContent();
+
     offset += limit;
 }
 
@@ -132,8 +144,10 @@ async function loadPokemonData() {
 function getPokemonColor(details) {
     if (details.types && details.types.length > 0) {
         let primaryType = details.types[0].type.name;
+
         return TYPE_COLORS[primaryType] || "gray";
     }
+
     return "gray";
 }
 
@@ -152,6 +166,7 @@ async function loadSearchResults(results) {
 
     try {
         await loadSearchPokemonList(results);
+
         renderContent();
         showAllButton();
     } catch (error) {
@@ -201,6 +216,7 @@ function getEvolutionChain(chain) {
             evolutions.push(...getEvolutionChain(evolution));
         }
     }
+
     return evolutions;
 }
 
@@ -208,22 +224,43 @@ async function loadEvolutionPokemon(evolutionNames) {
     let evolutionPokemon = [];
 
     for (let evolutionName of evolutionNames) {
-        let evolution = await loadData(`pokemon/${evolutionName}`);
+        let evolution = await loadData(
+            `pokemon/${evolutionName}`
+        );
+
         evolutionPokemon.push(evolution);
     }
+
     return evolutionPokemon;
 }
 
 async function changePokemon(id, step) {
-    let newIndex = (id + step + pokemonNames.length) % pokemonNames.length;
-    
-    await loadPokemonDetails(newIndex);
-    
-    printDialog(pokemonNames[newIndex], newIndex);
+    let dialogContent = document.getElementById("dialog-content");
+
+    showDialogSpinner();
+    dialogContent.innerHTML = "";
+
+    try {
+        let newIndex =
+            (id + step + pokemonNames.length) %
+            pokemonNames.length;
+
+        await loadPokemonDetails(newIndex);
+
+        printDialog(
+            pokemonNames[newIndex],
+            newIndex
+        );
+    } catch (error) {
+        console.error("Error changing Pokémon", error);
+    }
+
+    hideDialogSpinner();
 }
 
 function showSpinner() {
-    let spinner = document.querySelector(".loading-spinner-container");
+    let spinner = document.getElementById("page-spinner");
+
     if (spinner) {
         spinner.classList.remove("d-none");
         document.body.style.overflow = "hidden";
@@ -231,16 +268,33 @@ function showSpinner() {
 }
 
 function hideSpinner() {
-    let spinner = document.querySelector(".loading-spinner-container");
+    let spinner = document.getElementById("page-spinner");
+
     if (spinner) {
         spinner.classList.add("d-none");
         document.body.style.overflow = "";
     }
 }
 
+function showDialogSpinner() {
+    let spinner = document.getElementById("dialog-spinner");
+
+    if (spinner) {
+        spinner.classList.remove("d-none");
+    }
+}
+
+function hideDialogSpinner() {
+    let spinner = document.getElementById("dialog-spinner");
+
+    if (spinner) {
+        spinner.classList.add("d-none");
+    }
+}
+
 function showAllButton() {
     let button = document.getElementById("trigger");
-    
+
     button.innerHTML = `
         <button
             class="load-more-btn"
