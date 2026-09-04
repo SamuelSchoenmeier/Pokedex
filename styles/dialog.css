@@ -53,13 +53,13 @@ dialog::backdrop {
     display: flex;
     justify-content: space-between;
     color: white;
-    padding: 34px 34px 16px;
+    padding: 16px;
 }
 
 .dialog-container {
     display: flex;
     flex-direction: column;
-    padding-bottom: 30px;
+    padding-bottom: 16px;
 }
 
 .dialog-img {
@@ -130,7 +130,7 @@ dialog::backdrop {
 
 .pok-info {
     background-color: var(--secondary-color);
-    height: 300px;
+    height: 293px;
     color: white;
     align-content: center;
 }
@@ -143,7 +143,7 @@ dialog::backdrop {
 .dialog-footer {
     display: flex;
     justify-content: space-between;
-    padding: 24px;
+    padding: 6px;
     background-color: var(--secondary-color);
 }
 
