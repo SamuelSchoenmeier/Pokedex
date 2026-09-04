@@ -46,8 +46,20 @@ p {
 input {
     height: 30px;
     margin-top: 14px !important;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
+    border: 2px solid black;
+    border-right: 0;
+    border-radius: 8px 0 0 8px;
+    box-sizing: border-box;
+}
+
+.clear-btn {
+    height: 30px;
+    margin-top: 14px;
+    border: 2px solid black;
+    border-left: 0;
+    background: white;
+    box-sizing: border-box;
+    appearance: none;
 }
 
 .filter-btn {
