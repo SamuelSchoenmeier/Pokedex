@@ -58,6 +58,42 @@
     }
 }
 
+@media(max-width: 390px) {
+    a {
+        margin-top: 5px;
+    }
+
+    input {
+        width: 121px;
+        height: 25px;
+    }
+    input::placeholder {
+        font-size: 14px;
+    }
+
+    .clear-btn {
+        display: flex;
+        align-items: center;
+        height: 25px;
+    }
+
+    .filter-btn {
+        height: 25px;
+        width: 55px;
+        padding: 0 0 0 4px;
+        text-align: start;
+    }
+
+    .pokedex-logo {
+        width: 40px;
+    }
+
+    .logo-txt {
+        font-weight: 700;
+        font-size: 17px;
+    }
+}
+
 @media(max-width: 350px) {
     .progress {
         width: 130px;
@@ -66,5 +102,11 @@
     .pok-info-wrapper {
         max-width: 260px;
         min-width: 260px;
+    }
+}
+
+@media(max-width: 345px) {
+    input {
+        width: 106px;
     }
 }

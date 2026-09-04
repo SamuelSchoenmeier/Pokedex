@@ -83,7 +83,6 @@ table {
     font-weight: 900;
     text-decoration: underline var(--primary-color) !important;
     color: white;
-    margin-top: 12px;
 }
 
 main {
