@@ -316,3 +316,12 @@ function loadMoreButton() {
         </button>
     `;
 }
+
+function deleteInput() {
+    let inputFiel = document.getElementById("search_input");
+    let clearBtn = document.getElementById("clear_btn");
+
+    clearBtn.addEventListener("click", function(){
+        inputFiel.value = "";
+    });
+}
