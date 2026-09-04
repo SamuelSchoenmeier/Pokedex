@@ -70,6 +70,12 @@ input {
     border-bottom-right-radius: 8px;
 }
 
+ul {
+    list-style-type: none;
+    display: flex;
+    max-width: 100vh;
+}
+
 table {
     justify-self: center;
 }

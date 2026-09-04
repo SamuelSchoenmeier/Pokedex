@@ -1,5 +1,6 @@
 function dialogTemplate(currentPokemon, index) {
     return  `
+    <li>
         <button class="dialog-trigger" onclick="openDialog(${index})" data-id="card" aria-haspopup="dialog" aria-controls="dialog" aria-label="open pokemon info">
             <div class="dialog-trigger-txt">
                 <h2>${currentPokemon.name}</h2>
@@ -24,6 +25,7 @@ function dialogTemplate(currentPokemon, index) {
                 `).join("")}
             </div>
         </button>
+    </li>
             `;
 }
 

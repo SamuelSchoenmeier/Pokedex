@@ -28,9 +28,6 @@
 .img-container {
     width: 100%;
     background-color: var(--secondary-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border-bottom: 2px solid black;
 }
 
