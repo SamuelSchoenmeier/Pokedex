@@ -72,8 +72,9 @@ input {
 
 ul {
     list-style-type: none;
+    flex-wrap: wrap;
     display: flex;
-    max-width: 100vh;
+    justify-content: center;
 }
 
 table {
