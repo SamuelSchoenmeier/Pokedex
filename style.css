@@ -9,6 +9,7 @@ html::-webkit-scrollbar {
 body {
     margin: 0;
     border: 0;
+    background-color: var(--secondary-color) !important;
 }
 
 :root {
@@ -95,10 +96,13 @@ table {
 main {
     display: flex;
     flex-direction: column;
-    padding: 90px 40px 0px 40px;
-    background-color: var(--secondary-color);
+    padding: 90px 40px 0;
     min-height: calc(100vh - 183px);
     text-align: center;
+    max-width: 2000px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 h1 {
     color: white;
