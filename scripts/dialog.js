@@ -3,9 +3,11 @@ async function openDialog(index) {
     let contentRef = document.getElementById("dialog-content");
 
     contentRef.innerHTML = "";
-    dialogRef.showModal();
+    contentRef.classList.add("d-none");
 
+    dialogRef.showModal();
     document.body.style.overflow = "hidden";
+
     showDialogSpinner();
 
     try {
@@ -16,6 +18,7 @@ async function openDialog(index) {
     }
 
     hideDialogSpinner();
+    contentRef.classList.remove("d-none");
 }
 
 function closeDialog() {
