@@ -76,6 +76,7 @@ ul {
     flex-wrap: wrap;
     display: flex;
     justify-content: center;
+    padding: 0;
 }
 
 table {
