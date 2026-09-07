@@ -25,19 +25,21 @@
 <body onload="init()">
 
     <header>
-        <a href="index.html" aria-label="reload page">
-            <img class="pokedex-logo" src="./img/pokedex-logo.png" alt="Pokedex">
-            <p class="logo-txt">Pokedex</p>
-        </a>
+        <div class="header-nav-wrapper">
+            <a href="index.html" aria-label="reload page">
+                <img class="pokedex-logo" src="./img/pokedex-logo.png" alt="Pokedex">
+                <p class="logo-txt">Pokedex</p>
+            </a>
 
-        <form class="filter-container" onsubmit="filterAndShowNames(event)">
-            <input id="search_input" type="text" placeholder="Search Pokemon" data-id="search-input">
-            <button class="clear-btn" id="clear_btn" onclick="deleteInput()" aria-label="clear search">X</button>
+            <form class="filter-container" onsubmit="filterAndShowNames(event)">
+                <input id="search_input" type="text" placeholder="Search Pokemon" data-id="search-input">
+                <button class="clear-btn" id="clear_btn" onclick="deleteInput()" aria-label="clear search">X</button>
 
-            <button class="filter-btn" id="search_btn" type="submit" aria-label="search pokemon">
-                Search
-            </button>
-        </form>
+                <button class="filter-btn" id="search_btn" type="submit" aria-label="search pokemon">
+                    Search
+                </button>
+            </form>
+        </div>
     </header>
 
     <main data-id="content">
@@ -66,7 +68,9 @@
     </div>
 
     <footer>
-        <img class="da-logo" src="img/DA-logo.png" alt="DA logo">
+        <div>
+            <img class="da-logo" src="img/DA-logo.png" alt="DA logo">
+        </div>
     </footer>
 
 </body>
